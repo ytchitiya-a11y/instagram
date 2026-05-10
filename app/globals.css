@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+:root {
+  --saffron: #ff6b00;
+  --saffron2: #ff8c38;
+}
+
+body {
+  background: #080810;
+  color: #f0f0f8;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@keyframes riseUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn  { from { opacity:0; } to { opacity:1; } }
+@keyframes spin    { to { transform:rotate(360deg); } }
+@keyframes blink   { 0%,100% { opacity:1; } 50% { opacity:.4; } }
+
+.rise { animation: riseUp .45s cubic-bezier(.22,1,.36,1) both; }
+.fade { animation: fadeIn .3s ease both; }
+.d1{animation-delay:.05s}.d2{animation-delay:.1s}.d3{animation-delay:.15s}
+.d4{animation-delay:.2s}.d5{animation-delay:.25s}
+.spinner { width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,.15);border-top-color:#fff;animation:spin .65s linear infinite;display:inline-block; }
+.dot-live { width:8px;height:8px;border-radius:50%;background:#00ff88;box-shadow:0 0 8px #00ff88;display:inline-block;animation:blink 2s ease-in-out infinite; }

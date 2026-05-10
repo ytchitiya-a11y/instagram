@@ -36,7 +36,7 @@ export default function AdminDashboard() {
   const loadAll = async () => {
     // Users
     const uSnap = await getDocs(collection(db, 'users'));
-    const uList = uSnap.docs.map(d => ({ uid: d.id, ...d.data(), _leads: 0 }));
+    const uList: any[] = uSnap.docs.map(d => ({ uid: d.id, ...d.data(), _leads: 0 }));
 
     // Lead counts
     const leads: any[] = [];
